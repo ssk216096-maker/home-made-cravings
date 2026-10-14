@@ -1,0 +1,630 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Home Made Cravings</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap">
+<style>
+/* Layout: editorial, asymmetric blocks on a 12-col feel; generous whitespace; one terracotta accent. */
+:root {
+  --cream: #FFF8F0;
+  --cocoa: #432B25;
+  --terracotta: #B9684C;
+  --blush: #EAD4C5;
+  --white: #FFFFFF;
+  --ink: #432B25;
+  --muted: #6e5349;
+  --line: rgba(67, 43, 37, 0.14);
+  --serif: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font: 400 16px/1.6 var(--sans);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; text-wrap: balance; margin: 0; }
+p { margin: 0; text-wrap: pretty; }
+:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 3px; }
+.wrap { max-width: 1160px; margin: 0 auto; }
+.eyebrow { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--terracotta); font-weight: 700; }
+section { padding-block: clamp(64px, 10vw, 120px); }
+
+/* Photo placeholders: swap the inner .ph block for a real <img> (see README note in the reply). */
+.ph {
+  position: relative; width: 100%; height: 100%; background: var(--blush);
+  display: flex; align-items: flex-end; padding: 14px; overflow: hidden;
+}
+.ph span { font-size: 12px; color: var(--cocoa); background: var(--cream); padding: 4px 9px; border-radius: 2px; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 12px 22px; font: 700 15px/1 var(--sans); text-decoration: none;
+  border: 1.5px solid var(--cocoa); background: transparent; color: var(--cocoa); cursor: pointer;
+  transition: background-color .2s, color .2s;
+}
+.btn:hover { background: var(--cocoa); color: var(--cream); }
+.btn-solid { background: var(--terracotta); border-color: var(--terracotta); color: var(--white); }
+.btn-solid:hover { background: var(--cocoa); border-color: var(--cocoa); color: var(--white); }
+
+/* Header */
+.site-header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--cream); border-bottom: 1px solid var(--line);
+}
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
+.logo { font-family: var(--serif); font-size: 22px; text-decoration: none; letter-spacing: 0.01em; }
+.logo em { color: var(--terracotta); font-style: italic; }
+.nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.nav-links a { text-decoration: none; font-size: 15px; font-weight: 500; }
+.nav-links a:hover { color: var(--terracotta); }
+.nav-cta { display: flex; align-items: center; gap: 14px; }
+.nav-cta .btn { min-height: 42px; padding: 10px 16px; font-size: 14px; }
+.menu-toggle {
+  display: none; background: none; border: 0; padding: 10px; cursor: pointer; color: var(--cocoa);
+}
+.menu-toggle span { display: block; width: 24px; height: 2px; background: currentColor; margin: 5px 0; }
+.mobile-menu { border-top: 1px solid var(--line); padding-block: 12px 20px; }
+.mobile-menu a { display: block; padding: 12px 0; text-decoration: none; font-size: 17px; border-bottom: 1px solid var(--line); }
+@media (max-width: 880px) {
+  .nav-links, .nav-cta .btn { display: none; }
+  .menu-toggle { display: block; }
+}
+
+/* Hero: image and text offset asymmetrically */
+.hero { padding-block: clamp(40px, 7vw, 88px) clamp(64px, 9vw, 110px); }
+.hero-grid {
+  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(32px, 5vw, 72px); align-items: center;
+}
+.hero-copy { position: relative; }
+.hero h1 { font-size: clamp(44px, 6.4vw, 84px); letter-spacing: -0.01em; margin-top: 18px; }
+.hero h1 em { color: var(--terracotta); }
+.hero-lead { margin-top: 24px; font-size: 18px; max-width: 34ch; color: var(--muted); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.hero-photo { position: relative; aspect-ratio: 4 / 5; margin-left: clamp(0px, 6vw, 60px); }
+.hero-photo .ph { font-family: var(--serif); font-size: 26px; font-style: italic; color: var(--cocoa); padding: 22px; align-items: flex-start; }
+.hero-photo .ph span { font-family: var(--sans); font-style: normal; font-size: 12px; }
+.badge {
+  position: absolute; left: -18px; bottom: 42px; background: var(--cocoa); color: var(--cream);
+  padding: 14px 18px; transform: rotate(-4deg); font-family: var(--serif); font-style: italic; font-size: 19px; line-height: 1.2;
+  max-width: 220px; box-shadow: 0 1px 0 rgba(0,0,0,.05);
+}
+@media (max-width: 820px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-photo { margin-left: 0; aspect-ratio: 4 / 3.6; }
+  .badge { left: 12px; bottom: 16px; }
+}
+
+/* Signature treats: editorial mixed grid */
+.section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 48px; }
+.section-head h2 { font-size: clamp(36px, 4.4vw, 56px); margin-top: 12px; }
+.section-head p { max-width: 40ch; color: var(--muted); }
+.treats { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(20px, 3vw, 36px); align-items: start; }
+.treat { display: flex; flex-direction: column; gap: 14px; }
+.treat .frame { aspect-ratio: 4 / 3; overflow: hidden; }
+.treat:nth-child(1) { grid-column: span 7; }
+.treat:nth-child(1) .frame { aspect-ratio: 16 / 11; }
+.treat:nth-child(2) { grid-column: span 5; margin-top: 64px; }
+.treat:nth-child(2) .frame { aspect-ratio: 4 / 5; }
+.treat:nth-child(3) { grid-column: span 4; }
+.treat:nth-child(3) .frame { aspect-ratio: 1 / 1; }
+.treat:nth-child(4) { grid-column: span 4; margin-top: 40px; }
+.treat:nth-child(4) .frame { aspect-ratio: 3 / 4; }
+.treat:nth-child(5) { grid-column: span 4; }
+.treat:nth-child(5) .frame { aspect-ratio: 4 / 3; }
+.treat:nth-child(6) { grid-column: 2 / span 10; }
+.treat:nth-child(6) .frame { aspect-ratio: 21 / 9; }
+.treat:nth-child(6) .treat-body { max-width: 52ch; }
+.treat h3 { font-size: 28px; }
+.treat-body { display: flex; flex-direction: column; gap: 8px; }
+.treat p { color: var(--muted); font-size: 15px; }
+.treat-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.price { font-weight: 700; font-size: 15px; }
+.price small { display: block; font-weight: 400; font-size: 11px; color: var(--muted); letter-spacing: .04em; }
+.treat .btn { min-height: 42px; padding: 10px 16px; font-size: 14px; }
+.treat .frame { position: relative; }
+@media (max-width: 880px) {
+  .treat:nth-child(n) { grid-column: 1 / -1; margin-top: 0; }
+  .treat:nth-child(6) .frame { aspect-ratio: 4 / 3; }
+}
+.note { font-size: 13px; color: var(--muted); margin-top: 36px; border-left: 2px solid var(--terracotta); padding-left: 14px; }
+
+/* Homemade difference */
+.difference { background: var(--white); }
+.diff-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+.diff-grid h2 { font-size: clamp(36px, 4.4vw, 54px); margin-top: 12px; }
+.diff-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+.diff-list li { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding-block: 28px; border-top: 1px solid var(--line); }
+.diff-list li:last-child { border-bottom: 1px solid var(--line); }
+.diff-list svg { width: 44px; height: 44px; color: var(--terracotta); }
+.diff-list h3 { font-size: 26px; margin-bottom: 6px; }
+.diff-list p { color: var(--muted); max-width: 52ch; }
+@media (max-width: 820px) { .diff-grid { grid-template-columns: 1fr; } }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+.about-photo { aspect-ratio: 5 / 4; }
+.about-copy h2 { font-size: clamp(38px, 5vw, 62px); margin-top: 12px; }
+.about-copy p { margin-top: 22px; color: var(--muted); font-size: 17px; max-width: 46ch; }
+.about-copy p + p { margin-top: 14px; }
+.signoff { margin-top: 28px; font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--cocoa); }
+@media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; } .about-copy { order: -1; } }
+
+/* Custom orders banner */
+.custom { padding-block: 0 clamp(64px, 10vw, 120px); }
+.custom-band {
+  background: var(--cocoa); color: var(--cream); display: grid; grid-template-columns: 1.2fr 0.8fr;
+  gap: 32px; align-items: center; padding: clamp(36px, 6vw, 72px); border-radius: 2px;
+}
+.custom-band h2 { font-size: clamp(36px, 4.6vw, 58px); margin-top: 12px; color: var(--cream); }
+.custom-band .eyebrow { color: var(--blush); }
+.custom-band p { color: var(--blush); margin-top: 18px; max-width: 46ch; }
+.custom-band .btn { border-color: var(--cream); color: var(--cream); justify-self: start; }
+.custom-band .btn:hover { background: var(--cream); color: var(--cocoa); }
+.occasions { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.occasions li { border-bottom: 1px solid rgba(255,248,240,.2); padding-bottom: 10px; font-family: var(--serif); font-size: 24px; }
+@media (max-width: 820px) { .custom-band { grid-template-columns: 1fr; } }
+
+/* Gallery */
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 170px; gap: 12px; }
+.tile { position: relative; overflow: hidden; margin: 0; }
+.tile .ph { transition: transform .5s ease; }
+.tile:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.tile:nth-child(4) { grid-row: span 2; }
+.tile:nth-child(7) { grid-column: span 2; }
+.tile figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 10px 12px; font-size: 13px;
+  background: var(--cream); color: var(--cocoa);
+}
+@media (hover: hover) and (pointer: fine) {
+  .tile:hover .ph { transform: scale(1.03); }
+}
+@media (max-width: 760px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; }
+  .tile:nth-child(1), .tile:nth-child(7) { grid-column: span 2; }
+  .tile:nth-child(4) { grid-row: auto; }
+}
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(32px, 6vw, 88px); align-items: start; }
+.contact-grid h2 { font-size: clamp(36px, 4.6vw, 56px); margin-top: 12px; }
+.contact-info { margin-top: 28px; display: grid; gap: 0; }
+.contact-info div { display: grid; grid-template-columns: 130px 1fr; gap: 16px; padding-block: 14px; border-top: 1px solid var(--line); }
+.contact-info div:last-child { border-bottom: 1px solid var(--line); }
+.contact-info dt { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.contact-info dd { margin: 0; }
+.placeholder-tag { display: inline-block; font-size: 12px; color: var(--terracotta); background: rgba(185,104,76,.1); padding: 2px 8px; margin-left: 6px; }
+.contact-cta { margin-top: 28px; }
+form { background: var(--white); padding: clamp(24px, 4vw, 40px); border: 1px solid var(--line); display: grid; gap: 18px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: 14px; font-weight: 500; }
+.field input, .field select, .field textarea {
+  font: 400 16px var(--sans); color: var(--ink); background: var(--cream); border: 1px solid var(--line);
+  padding: 12px 14px; min-height: 46px; border-radius: 0; width: 100%;
+}
+.field textarea { min-height: 110px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--terracotta); outline-offset: 1px; border-color: transparent; }
+.field .err { font-size: 13px; color: #9b3b26; min-height: 0; }
+.field[data-invalid="true"] input, .field[data-invalid="true"] select { border-color: #9b3b26; }
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: space-between; }
+.form-foot small { color: var(--muted); }
+.success { display: none; background: var(--white); border: 1px solid var(--line); padding: clamp(28px, 4vw, 40px); }
+.success h3 { font-size: 30px; }
+.success p { margin-top: 12px; color: var(--muted); }
+.success[data-show="true"] { display: block; }
+@media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; } .row-2 { grid-template-columns: 1fr; } .contact-info div { grid-template-columns: 1fr; gap: 2px; } }
+
+/* Footer */
+.site-footer { background: var(--cocoa); color: var(--blush); padding-block: 64px 32px; }
+.foot-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; }
+.foot-logo { font-family: var(--serif); font-size: 34px; color: var(--cream); line-height: 1; }
+.foot-logo em { color: var(--terracotta); font-style: italic; }
+.site-footer p { font-size: 15px; max-width: 36ch; margin-top: 16px; }
+.site-footer h4 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--cream); margin: 0 0 14px; font-weight: 700; }
+.site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.site-footer a { text-decoration: none; }
+.site-footer a:hover { color: var(--cream); text-decoration: underline; }
+.copy { margin-top: 48px; padding-top: 22px; border-top: 1px solid rgba(234,212,197,.2); font-size: 13px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+@media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+</style>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="logo" href="#home">Home Made <em>Cravings</em></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#treats">Our Treats</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-solid wa-link" data-msg="Hello Home Made Cravings! I would like to place an order." target="_blank" rel="noopener">Order on WhatsApp</a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="wrap mobile-menu" id="mobileMenu" hidden>
+    <a href="#home">Home</a>
+    <a href="#treats">Our Treats</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Homemade cakes, desserts &amp; custom orders</span>
+      <h1>Baked with love. <em>Made for your cravings.</em></h1>
+      <p class="hero-lead">Homemade treats, freshly prepared with love and a little sweetness in every bite.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="#treats">Explore Our Treats</a>
+        <a class="btn wa-link" data-msg="Hello! I would like to order a treat from Home Made Cravings." target="_blank" rel="noopener">Order on WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <figure class="ph" role="img" aria-label="Placeholder: large photograph of homemade cakes">
+        <span>Hero photo: homemade cakes, warm light, 4:5</span>
+      </figure>
+      <div class="badge">Made fresh, made with love</div>
+    </div>
+  </div>
+</section>
+
+<section id="treats" aria-labelledby="treats-title">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Signature treats</span>
+        <h2 id="treats-title">Something for every sweet tooth</h2>
+      </div>
+      <p>A few favourites from the kitchen. Tell us what you are craving and we will prepare it fresh.</p>
+    </div>
+
+    <div class="treats" id="treatList">
+      <article class="treat" data-product="Chocolate Fudge Cake">
+        <div class="frame"><div class="ph"><span>Photo: chocolate fudge cake</span></div></div>
+        <div class="treat-body">
+          <h3>Chocolate Fudge Cake</h3>
+          <p>Dense, glossy chocolate layers with a soft fudge frosting and a clean, rich finish.</p>
+        </div>
+        <div class="treat-foot">
+          <span class="price">₹ 900 <small>Illustrative sample price</small></span>
+          <a class="btn btn-solid wa-order" data-product="Chocolate Fudge Cake" target="_blank" rel="noopener">Order This</a>
+        </div>
+      </article>
+
+      <article class="treat" data-product="Classic Vanilla Cake">
+        <div class="frame"><div class="ph"><span>Photo: vanilla sponge</span></div></div>
+        <div class="treat-body">
+          <h3>Classic Vanilla Cake</h3>
+          <p>A light, tender sponge with a whisper of vanilla and a buttercream that is never too sweet.</p>
+        </div>
+        <div class="treat-foot">
+          <span class="price">₹ 700 <small>Illustrative sample price</small></span>
+          <a class="btn btn-solid wa-order" data-product="Classic Vanilla Cake" target="_blank" rel="noopener">Order This</a>
+        </div>
+      </article>
+
+      <article class="treat" data-product="Red Velvet Cake">
+        <div class="frame"><div class="ph"><span>Photo: red velvet slice</span></div></div>
+        <div class="treat-body">
+          <h3>Red Velvet Cake</h3>
+          <p>Soft crimson layers with a cocoa hint and a tangy cream cheese frosting.</p>
+        </div>
+        <div class="treat-foot">
+          <span class="price">₹ 850 <small>Illustrative sample price</small></span>
+          <a class="btn btn-solid wa-order" data-product="Red Velvet Cake" target="_blank" rel="noopener">Order This</a>
+        </div>
+      </article>
+
+      <article class="treat" data-product="Fudgy Brownies">
+        <div class="frame"><div class="ph"><span>Photo: fudgy brownies</span></div></div>
+        <div class="treat-body">
+          <h3>Fudgy Brownies</h3>
+          <p>Chewy centres, crisp edges and plenty of chocolate, cut into generous squares.</p>
+        </div>
+        <div class="treat-foot">
+          <span class="price">₹ 450 <small>Illustrative sample price, box of 6</small></span>
+          <a class="btn btn-solid wa-order" data-product="Fudgy Brownies" target="_blank" rel="noopener">Order This</a>
+        </div>
+      </article>
+
+      <article class="treat" data-product="Chocolate Cupcakes">
+        <div class="frame"><div class="ph"><span>Photo: cupcakes</span></div></div>
+        <div class="treat-body">
+          <h3>Chocolate Cupcakes</h3>
+          <p>Moist single-serve cupcakes topped with swirled chocolate frosting.</p>
+        </div>
+        <div class="treat-foot">
+          <span class="price">₹ 360 <small>Illustrative sample price, box of 6</small></span>
+          <a class="btn btn-solid wa-order" data-product="Chocolate Cupcakes" target="_blank" rel="noopener">Order This</a>
+        </div>
+      </article>
+
+      <article class="treat" data-product="Custom Celebration Cake">
+        <div class="frame"><div class="ph"><span>Photo: custom celebration cake</span></div></div>
+        <div class="treat-body">
+          <h3>Custom Celebration Cake</h3>
+          <p>Designed around your flavour, colours and theme. Share your idea and we will shape it with you.</p>
+        </div>
+        <div class="treat-foot">
+          <span class="price">From ₹ 1,500 <small>Illustrative starting price, varies by design</small></span>
+          <a class="btn btn-solid wa-order" data-product="Custom Celebration Cake" target="_blank" rel="noopener">Order This</a>
+        </div>
+      </article>
+    </div>
+    <p class="note">Products, descriptions and prices on this page are illustrative placeholders for a demo. Edit them in the page before publishing.</p>
+  </div>
+</section>
+
+<section class="difference" aria-labelledby="diff-title">
+  <div class="wrap diff-grid">
+    <div>
+      <span class="eyebrow">The homemade difference</span>
+      <h2 id="diff-title">Baked the way you would bake it at home</h2>
+    </div>
+    <ul class="diff-list">
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="24" cy="24" r="15"/><path d="M24 15v9l6 4"/></svg>
+        <div>
+          <h3>Made Fresh to Order</h3>
+          <p>Each order is prepared after you place it, so your treat arrives as fresh as we can make it.</p>
+        </div>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 30h28v4a6 6 0 0 1-6 6H16a6 6 0 0 1-6-6v-4z"/><path d="M14 30c0-7 4-12 10-12s10 5 10 12"/><path d="M24 12v6"/></svg>
+        <div>
+          <h3>Prepared with Care</h3>
+          <p>Every cake and batch is made by hand, with attention to texture, decoration and finish.</p>
+        </div>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M24 8l4.5 9.5L39 19l-7.5 7 2 10.5L24 32l-9.5 4.5 2-10.5L9 19l10.5-1.5z"/></svg>
+        <div>
+          <h3>Perfect for Every Celebration</h3>
+          <p>From birthdays to anniversaries, we make something that fits the occasion and the people you are sharing it with.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="about" aria-labelledby="about-title">
+  <div class="wrap about-grid">
+    <figure class="ph about-photo" role="img" aria-label="Placeholder: baking photograph"><span>Photo: baking details, flour and whisk</span></figure>
+    <div class="about-copy">
+      <span class="eyebrow">About the brand</span>
+      <h2 id="about-title">A little love in every bite</h2>
+      <p>Home Made Cravings is built on a simple idea: a treat tastes better when someone has thought about it, measured it carefully and baked it with their own hands.</p>
+      <p>We make cakes, desserts and baked treats for everyday moments and for the occasions that matter most. Every order gets the same attention, whether it is a single box of brownies or a celebration cake.</p>
+      <p class="signoff">[Owner’s name and story to be added]</p>
+    </div>
+  </div>
+</section>
+
+<section class="custom" aria-labelledby="custom-title">
+  <div class="wrap">
+    <div class="custom-band">
+      <div>
+        <span class="eyebrow">Custom orders &amp; celebrations</span>
+        <h2 id="custom-title">Something sweet for your special moments</h2>
+        <p>Birthdays, anniversaries, office celebrations or a dessert table for a gathering. Tell us the occasion and we will plan the rest together.</p>
+        <p style="margin-top:28px"><a class="btn wa-link" data-msg="Hello! I would like to plan a custom order from Home Made Cravings." target="_blank" rel="noopener">Let’s Plan Your Order</a></p>
+      </div>
+      <ul class="occasions">
+        <li>Birthdays</li>
+        <li>Anniversaries</li>
+        <li>Celebrations</li>
+        <li>Personalised dessert boxes</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="gallery-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Gallery</span>
+        <h2 id="gallery-title">From our kitchen</h2>
+      </div>
+      <p>Cakes, brownies, cupcakes, dessert boxes and the small details in between.</p>
+    </div>
+    <div class="gallery">
+      <figure class="tile"><div class="ph"><span>Cake, overhead</span></div><figcaption>Celebration cake</figcaption></figure>
+      <figure class="tile"><div class="ph"><span>Brownies, close</span></div><figcaption>Fudgy brownies</figcaption></figure>
+      <figure class="tile"><div class="ph"><span>Cupcakes</span></div><figcaption>Cupcakes</figcaption></figure>
+      <figure class="tile"><div class="ph"><span>Dessert box</span></div><figcaption>Dessert box</figcaption></figure>
+      <figure class="tile"><div class="ph"><span>Baking detail</span></div><figcaption>Baking details</figcaption></figure>
+      <figure class="tile"><div class="ph"><span>Slice, side view</span></div><figcaption>Red velvet</figcaption></figure>
+      <figure class="tile"><div class="ph"><span>Cake table</span></div><figcaption>Celebration table</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="contact-title">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow">Contact &amp; ordering</span>
+      <h2 id="contact-title">Let’s make something together</h2>
+      <p style="margin-top:18px;color:var(--muted);max-width:42ch">The fastest way to order is WhatsApp. Or send an enquiry below and we will reply with options.</p>
+      <div class="contact-cta"><a class="btn btn-solid wa-link" data-msg="Hello Home Made Cravings! I have a question about ordering." target="_blank" rel="noopener">Order on WhatsApp</a></div>
+      <dl class="contact-info">
+        <div><dt>Phone</dt><dd>+91 00000 00000 <span class="placeholder-tag">Demo placeholder</span></dd></div>
+        <div><dt>Instagram</dt><dd>@yourhandle <span class="placeholder-tag">Demo placeholder</span></dd></div>
+        <div><dt>Location</dt><dd>Your city, Your state <span class="placeholder-tag">Demo placeholder</span></dd></div>
+        <div><dt>Hours</dt><dd>Mon to Sat, 10:00 to 19:00 <span class="placeholder-tag">Demo placeholder</span></dd></div>
+      </dl>
+    </div>
+
+    <div>
+      <form id="enquiry" novalidate>
+        <div class="row-2">
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+            <div class="err" id="e-name"></div>
+          </div>
+          <div class="field">
+            <label for="f-occasion">Product or occasion</label>
+            <select id="f-occasion" name="occasion" required>
+              <option value="">Choose one</option>
+              <option>Chocolate Fudge Cake</option>
+              <option>Classic Vanilla Cake</option>
+              <option>Red Velvet Cake</option>
+              <option>Fudgy Brownies</option>
+              <option>Chocolate Cupcakes</option>
+              <option>Custom Celebration Cake</option>
+              <option>Other occasion</option>
+            </select>
+            <div class="err" id="e-occasion"></div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-date">Preferred date</label>
+          <input id="f-date" name="date" type="date" required>
+          <div class="err" id="e-date"></div>
+        </div>
+        <div class="field">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" name="message" placeholder="Flavours, size, decorations, dietary notes, anything else"></textarea>
+          <div class="err" id="e-message"></div>
+        </div>
+        <div class="form-foot">
+          <small>We reply on WhatsApp or by phone.</small>
+          <button class="btn btn-solid" type="submit">Send enquiry</button>
+        </div>
+      </form>
+      <div class="success" id="success" role="status" aria-live="polite">
+        <h3>Thank you, we have your enquiry.</h3>
+        <p>We will get back to you soon with options and a quote. This is a demo form, so nothing has been sent yet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Home Made <em>Cravings</em></div>
+        <p>Homemade cakes, desserts and baked treats, prepared fresh with love for everyday moments and special occasions.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#treats">Our Treats</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a class="wa-link" data-msg="Hello Home Made Cravings!" target="_blank" rel="noopener">WhatsApp (placeholder)</a></li>
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram (placeholder)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2026 Home Made Cravings. Demo website.</span>
+      <span>Designed as a sample for a bakery client.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Edit this single number to the business WhatsApp number (country code + number, digits only).
+const WHATSAPP_NUMBER = "910000000000";
+
+function waUrl(msg) {
+  return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg);
+}
+
+document.querySelectorAll(".wa-link").forEach(function (a) {
+  a.href = waUrl(a.dataset.msg);
+});
+
+document.querySelectorAll(".wa-order").forEach(function (a) {
+  a.href = waUrl("Hello! I would like to order: " + a.dataset.product + ". Please share availability and price.");
+  a.setAttribute("aria-label", "Order " + a.dataset.product + " on WhatsApp");
+});
+
+const toggle = document.getElementById("menuToggle");
+const menu = document.getElementById("mobileMenu");
+toggle.addEventListener("click", function () {
+  const open = toggle.getAttribute("aria-expanded") === "true";
+  toggle.setAttribute("aria-expanded", String(!open));
+  toggle.setAttribute("aria-label", open ? "Open menu" : "Close menu");
+  menu.hidden = open;
+});
+menu.querySelectorAll("a").forEach(function (a) {
+  a.addEventListener("click", function () {
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
+    menu.hidden = true;
+  });
+});
+
+// Enquiry form validation
+const form = document.getElementById("enquiry");
+const dateInput = document.getElementById("f-date");
+const today = new Date();
+dateInput.min = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+
+function setError(id, msg) {
+  const field = document.getElementById(id).closest(".field");
+  field.dataset.invalid = msg ? "true" : "false";
+  document.getElementById("e-" + id.slice(2)).textContent = msg;
+  document.getElementById(id).setAttribute("aria-invalid", msg ? "true" : "false");
+  return !msg;
+}
+
+function validate() {
+  const name = document.getElementById("f-name").value.trim();
+  const occasion = document.getElementById("f-occasion").value;
+  const date = document.getElementById("f-date").value;
+  const message = document.getElementById("f-message").value.trim();
+  let ok = true;
+  ok = setError("f-name", name.length < 2 ? "Please enter your name." : "") && ok;
+  ok = setError("f-occasion", occasion ? "" : "Please choose a product or occasion.") && ok;
+  ok = setError("f-date", !date ? "Please pick a preferred date." : (date < dateInput.min ? "Please pick today or a later date." : "")) && ok;
+  ok = setError("f-message", message.length > 0 && message.length < 5 ? "Add a little more detail, or leave this empty." : "") && ok;
+  return ok;
+}
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  if (!validate()) {
+    const firstBad = form.querySelector('[data-invalid="true"] input, [data-invalid="true"] select, [data-invalid="true"] textarea');
+    if (firstBad) firstBad.focus();
+    return;
+  }
+  form.hidden = true;
+  document.getElementById("success").dataset.show = "true";
+  document.getElementById("success").focus && document.getElementById("success").setAttribute("tabindex", "-1");
+});
+</script>
+
+</body></html>
